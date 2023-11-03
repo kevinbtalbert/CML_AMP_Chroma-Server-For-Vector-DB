@@ -8,9 +8,9 @@ prototype_version: 1.0
 date: "2023-11-02"
 
 environment_variables:
-  NAMESPACE:
+  COLLECTION_NAME:
     default: "cml-default"
-    description: "Enter preferred namespace for Chroma DB to store document embeddings in."
+    description: "Enter preferred collection name for Chroma DB to store document embeddings in."
     required: true
 
 runtimes:
