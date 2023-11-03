@@ -10,4 +10,4 @@ accelerate==0.21.0
 pinecone-client==2.2.4
 sentence-transformers==2.2.2
 chromadb==0.4.15
-chromadb_client==0.4.16
+chromadb-client==0.4.16
