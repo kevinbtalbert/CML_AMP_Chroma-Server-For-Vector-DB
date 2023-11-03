@@ -1,3 +1,3 @@
 import subprocess
 
-print(subprocess.run(["sh 1_session-install-deps/download_requirements.sh"], shell=True))
+print(subprocess.run(["sh 0_session-install-dependencies/download_requirements.sh"], shell=True))
