@@ -5,7 +5,7 @@ description: |
 author: Cloudera Inc.
 specification_version: 1.0
 prototype_version: 1.0
-date: "2023-11-02"
+date: "2023-11-05"
 
 environment_variables:
   COLLECTION_NAME:
@@ -13,9 +13,14 @@ environment_variables:
     description: "Enter preferred collection name for Chroma DB to store document embeddings in."
     required: true
 
+  POPULATE_SAMPLE_DATA:
+    default: "YES"
+    description: "Use this field to indicate YES or NO to populate Chroma DB with sample datasets."
+    required: true
+
 runtimes:
   - editor: JupyterLab
-    kernel: Python 3.9
+    kernel: Python 3.10
     edition: Standard
 
 tasks:
@@ -27,12 +32,21 @@ tasks:
     cpu: 2
     memory: 8
     
+  - type: run_session
+    name: Setup Chroma Server
+    script: 1_session-setup-chroma-db/setup-chroma.py
+    short_summary: Setup Chroma Server Vector DB
+    long_summary: Resolve sqlite dependency with python version and control logging in Chroma server package
+    kernel: python3
+    cpu: 2
+    memory: 4
+
   - type: start_application
     name: CML Chroma Server REST API Server
     subdomain: cml-chroma-server
-    script: 1_app/api_app.py
-    short_summary: Create and start Chroma Server
-    long_summary: Create and start Chroma Server REST API application. Vector Database creates encodings for GET and POST requests. Remember to enable unauthenticated app access for external access to the UI.
+    script: 2_app-run-chroma-server/launch-server.py
+    short_summary: Launch Chroma Server
+    long_summary: Launch Chroma Server REST API application. Vector Database creates encodings for GET and POST requests. Remember to enable unauthenticated app access for external access to the UI.
     cpu: 2
     memory: 8
     environment_variables:
