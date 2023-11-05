@@ -51,3 +51,18 @@ tasks:
     memory: 8
     environment_variables:
       TASK_TYPE: START_APPLICATION
+
+  - type: create_job
+    name: Populate Chroma Vector DB with sample documents embeddings
+    entity_label: chroma_vectordb_insert
+    script: 3_job-populate-vectordb/populate-sample-vectors.py
+    arguments: None
+    short_summary: Create job to push vectors with document embeddings to Chroma DB. 
+    cpu: 2
+    memory: 8
+    environment:
+      TASK_TYPE: CREATE/RUN_JOB
+
+  - type: run_job
+    entity_label: chroma_vectordb_insert
+    short_summary: Populate Chroma Vector DB with documents embeddings (This will only run if you set "POPULATE_SAMPLE_DATA" with "YES" as an environment variable.)

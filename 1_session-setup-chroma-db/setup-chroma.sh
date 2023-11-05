@@ -13,13 +13,16 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
+# Use sed to remove lines containing the specific logger initialization
+sed -i '/logger = logging\.getLogger(__name__)/d' "$FILE"
+
 # The three lines to be added
 LINE1="__import__('pysqlite3')"
 LINE2="import sys"
 LINE3="sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')"
 LINE4="import logging"
-LINE5="chroma_logger = logging.getLogger('chroma')"
-LINE6="chroma_logger.setLevel(logging.CRITICAL)"
+LINE5="logger = logging.getLogger(__name__)"
+LINE6="logger.setLevel(logging.CRITICAL)"
 
 # Write the new lines to the temp file
 echo "$LINE1" > "$TEMP_FILE"
