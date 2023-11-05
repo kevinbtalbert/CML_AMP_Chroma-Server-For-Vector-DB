@@ -4,6 +4,6 @@ This AMP creates an application to host a Chroma Server for Vector DB and Semant
 ![](/assets/catalog-entry.png)
 
 ## Environment Requirements
-Python 3.10
-2 CPU
-8 MEM
+- Python 3.10
+- 2 CPU
+- 8 GB MEM
