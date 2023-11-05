@@ -3,16 +3,15 @@ import chromadb
 import os
 from pathlib import Path
 
-chroma_client = chromadb.Client()
-
-from chromadb.utils import embedding_functions
+# chroma_client = chromadb.Client()
+chroma_client = chromadb.PersistentClient(path="/home/cdsw/chroma-data")
 
 from chromadb.utils import embedding_functions
 EMBEDDING_MODEL_REPO = "sentence-transformers/all-mpnet-base-v2"
 EMBEDDING_MODEL_NAME = "all-mpnet-base-v2"
 EMBEDDING_FUNCTION = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=EMBEDDING_MODEL_NAME)
 
-COLLECTION_NAME = 'cml-default'
+COLLECTION_NAME = os.getenv('COLLECTION_NAME')
 
 print("initialising Chroma DB connection...")
 
@@ -54,11 +53,12 @@ def load_context_chunk_from_data(id_path):
         return f.read()
 
 # Read KB documents in ./data directory and insert embeddings into Vector DB for each doc
-doc_dir = '/sample-data'
+doc_dir = '3_job-populate-sample-vectors/sample-data'
 for file in Path(doc_dir).glob(f'**/*.txt'):
+    print(file)
     with open(file, "r") as f: # Open file in read mode
         print("Generating embeddings for: %s" % file.name)
         text = f.read()
         upsert_document(collection=collection, document=text, file_path=os.path.abspath(file))
-print('Finished loading Knowledge Base embeddings into Pinecone')
+print('Finished loading Knowledge Base embeddings into Chroma DB')
 
