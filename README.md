@@ -4,7 +4,9 @@ This AMP creates an application to host a Chroma Server for Vector DB and Semant
 ![](/assets/catalog-entry.png)
 
 ## AMP Description
-This AMP creates an "Application" in CML that is a Chroma server which can be accessed by the Chroma persistent client documented at the [Chroma Docs](https://docs.trychroma.com/reference/Client). In order for the server to be accessed outside of CML, you will need to ensure unauthenticated access is enabled such as shown below in the screenshots.
+This AMP creates an "Application" in CML that is a Chroma server which can be accessed by the Chroma persistent client documented at the [Chroma Docs](https://docs.trychroma.com/reference/Client). Sample code in `4_session-sample-usage/SampleUsageofAPI.ipynb` demonstrates how to add and query documents from the Chroma server. Generated vectors are persisted to `chroma-data`.
+
+In order for the server to be accessed outside of CML, you will need to ensure unauthenticated access is enabled such as shown below in the screenshots.
 
 ![](/assets/unauthenticated-access1.png)
 
