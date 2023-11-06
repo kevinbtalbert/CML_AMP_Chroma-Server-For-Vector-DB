@@ -3,6 +3,15 @@ This AMP creates an application to host a Chroma Server for Vector DB and Semant
 
 ![](/assets/catalog-entry.png)
 
+## AMP Description
+This AMP creates an "Application" in CML that is a Chroma server which can be accessed by the Chroma persistent client documented at the [Chroma Docs](https://docs.trychroma.com/reference/Client). In order for the server to be accessed outside of CML, you will need to ensure unauthenticated access is enabled such as shown below in the screenshots.
+
+![](/assets/unauthenticated-access1.png)
+
+If it does not appear in the Application settings, it may need to be enabled at an environment level as is shown below.
+
+![](/assets/unauthenticated-access2.png)
+
 ## Requirements
 
 ### Environment Requirements
@@ -29,3 +38,9 @@ This AMP requires pip packages and models from huggingface. Depending on your CM
 - [Chroma DB](https://docs.trychroma.com/)
 #### Hosting Platform
 - **CML Applications**
+
+## Deploying on CML
+There are two ways to launch this prototype on CML:
+
+1. **From Prototype Catalog** - Navigate to the Prototype Catalog on a CML workspace, select the "Chroma Server for Vector DB" tile, click "Launch as Project", click "Configure Project"
+2. **As ML Prototype** - In a CML workspace, click "New Project", add a Project Name, select "ML Prototype" as the Initial Setup option, copy in the [repo URL](https://github.com/kevinbtalbert/CML_AMP_Chroma-Server-For-Vector-DB), click "Create Project", click "Configure Project"

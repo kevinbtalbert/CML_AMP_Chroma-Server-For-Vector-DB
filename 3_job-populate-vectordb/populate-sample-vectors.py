@@ -56,7 +56,7 @@ if os.getenv("POPULATE_SAMPLE_DATA").upper() == "YES":
             return f.read()
 
     # Read KB documents in ./data directory and insert embeddings into Vector DB for each doc
-    doc_dir = '3_job-populate-sample-vectors/sample-data'
+    doc_dir = '3_job-populate-vectordb/sample-data'
     for file in Path(doc_dir).glob(f'**/*.txt'):
         print(file)
         with open(file, "r") as f: # Open file in read mode
