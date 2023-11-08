@@ -9,7 +9,7 @@ entries:
         IMPORTANT: Please read the following before proceeding.  This AMP includes or otherwise depends on certain third party software packages.
         If you do not wish to download and install the third party software packages, do not configure, launch or otherwise use this AMP.  By configuring, launching or otherwise using the AMP, you acknowledge the foregoing statement and agree that Cloudera is not responsible or liable in any way for the third party software packages.
     image_path: >-
-      https://raw.githubusercontent.com/kevinbtalbert/CDSW_AMP_CPU-ONLY-MISTRAL7B-CHATBOT/main/assets/catalog-entry.png
+      https://raw.githubusercontent.com/kevinbtalbert/CML_AMP_Chroma-Server-For-Vector-DB/main/assets/catalog-entry.png
     tags:
       - Chroma
       - Vector DB
